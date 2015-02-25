@@ -18,6 +18,7 @@ msgstr ""
 
 #: model:ir.actions.act_window,name:product_brand.action_product_brand
 #: view:product.template:product_brand.product_template_search_view_brand
+#: view:product.brand:product_brand.product_template_kanban_view_brand
 #: field:product.template,product_brand_id:0
 msgid "Brand"
 msgstr "Brand"

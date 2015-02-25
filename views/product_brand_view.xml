@@ -78,7 +78,7 @@
            <field name="model">product.template</field>
            <field name="inherit_id" ref="product.product_template_form_view" />
            <field name="arch" type="xml">
-                <!-- 
+                <!--
                 <xpath expr="//div[@class='oe_title']" position="inside">
                     <label for="product_brand_id" class="oe_edit_only"/>
                     <h2><field name="product_brand_id" class="oe_inline"/></h2>
@@ -97,5 +97,42 @@
         </record>
 
         <menuitem name="Brand management" id="menu_product_brand" action="action_product_brand" parent="product.prod_config_main"/>
+
+
+       <record model="ir.ui.view" id="product_kanban_view_brand">
+           <field name="name">Product Kanban brand</field>
+           <field name="model">product.product</field>
+           <field name="inherit_id" ref="product.product_kanban_view" />
+           <field name="arch" type="xml">
+                <xpath expr="//field[@name='attribute_value_ids']" position="before">
+                    <field name="product_brand_id" class="oe_inline"/>
+                </xpath>
+           </field>
+        </record>
+
+       <record model="ir.ui.view" id="product_template_kanban_view_brand">
+           <field name="name">Product.template.product.kanban.brand</field>
+           <field name="model">product.template</field>
+           <field name="inherit_id" ref="product.product_template_kanban_view" />
+           <field name="arch" type="xml">
+                <xpath expr="//div[@name='tags']" position="after">
+                    <ul>
+                         <li>Brand<span>:</span><field name="product_brand_id" class="oe_inline"/></li>
+                    </ul>
+                </xpath>
+           </field>
+        </record>
+
+       <record model="ir.ui.view" id="pproduct_template_tree_view_brand">
+           <field name="name">product.template.product.tree.brand</field>
+           <field name="model">product.template</field>
+           <field name="inherit_id" ref="product.product_template_tree_view" />
+           <field name="arch" type="xml">
+                <xpath expr="//field[@name='categ_id']" position="before">
+                    <field name="product_brand_id" class="oe_inline"/>
+                </xpath>
+           </field>
+        </record>
+
     </data>
 </openerp>
