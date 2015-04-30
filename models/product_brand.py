@@ -24,11 +24,14 @@
 
 from openerp import models, fields
 
+
 class ProductBrand(models.Model):
+
+    """Adds the fields for Brands."""
 
     _name = 'product.brand'
     _description = "Product Brands"
-    
+
     name = fields.Char('Brand Name', required=True, translate=True)
     description = fields.Text('Description', translate=True)
     partner_id = fields.Many2one('res.partner',
@@ -40,9 +43,12 @@ class ProductBrand(models.Model):
 
 
 class ProductTemplate(models.Model):
+
+    """Adds the fields for Brands id."""
+
     _inherit = "product.template"
-    
+
     product_brand_id = fields.Many2one('product.brand',
-                                 string='Brand',
-                                 help='Select a brand for this product.',
-                                 ondelete='restrict')
+                                       string='Brand',
+                                       help='Select a brand for this product.',
+                                       ondelete='restrict')
